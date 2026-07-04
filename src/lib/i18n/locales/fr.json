@@ -23,9 +23,26 @@
     "profile": "Profil"
   },
   "settings": {
+    "groups": {
+      "account": "Compte",
+      "workspace": "Espace de travail"
+    },
+    "sections": {
+      "overview": "Aperçu",
+      "profile": "Votre profil",
+      "security": "Connexion & sécurité",
+      "appearance": "Apparence",
+      "whatsapp": "WhatsApp",
+      "templates": "Modèles",
+      "fields": "Champs & tags",
+      "deals": "Offres & devise",
+      "members": "Membres de l'équipe",
+      "api": "Clés API"
+    },
     "appearance": {
       "title": "Apparence",
       "description": "Choisissez le mode visuel de l'application. Les modifications sont enregistrées localement sur cet appareil et s'appliquent instantanément.",
+      "description_general": "Tout en un seul endroit — votre compte et votre espace de travail. Choisissez une section à gérer.",
       "mode": "Mode d'Écran",
       "modes": {
         "light": "Clair",

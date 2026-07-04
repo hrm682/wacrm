@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, type ReactNode } from 'react';
-
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/lib/i18n';
 import {
   RAIL_GROUPS,
   SECTION_META,
@@ -31,6 +31,7 @@ export function SettingsRail({
   hints?: Partial<Record<SettingsSection, ReactNode>>;
 }) {
   const activeRef = useRef<HTMLButtonElement>(null);
+  const { t } = useLanguage();
 
   // When horizontal (mobile), keep the active chip in view. On desktop
   // the rail is a static column, so skip.
@@ -46,7 +47,7 @@ export function SettingsRail({
 
   return (
     <nav
-      aria-label="Settings sections"
+      aria-label={t("sidebar.settings")}
       className={cn(
         'flex gap-1 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
         'border-b border-border',
@@ -57,20 +58,25 @@ export function SettingsRail({
         const items = SETTINGS_SECTIONS.filter(
           (s) => SECTION_META[s].group === group,
         );
+        const groupLabelKey = group === "account" ? "settings.groups.account" : group === "workspace" ? "settings.groups.workspace" : null;
+        const displayLabel = groupLabelKey ? t(groupLabelKey) : label;
+
         return (
           <div
             key={group}
             className="flex shrink-0 gap-1 lg:flex-col lg:gap-0.5"
           >
-            {label ? (
+            {displayLabel ? (
               <div className="hidden px-3 pt-3.5 pb-1.5 text-[11px] font-semibold tracking-[0.09em] text-muted-foreground uppercase lg:block">
-                {label}
+                {displayLabel}
               </div>
             ) : null}
             {items.map((s) => {
               const meta = SECTION_META[s];
               const Icon = meta.icon;
               const isActive = s === active;
+              const displaySectionLabel = t(`settings.sections.${s}`);
+
               return (
                 <button
                   key={s}
@@ -79,15 +85,15 @@ export function SettingsRail({
                   onClick={() => onSelect(s)}
                   aria-current={isActive ? 'page' : undefined}
                   className={cn(
-                    'flex shrink-0 items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm font-medium whitespace-nowrap transition-colors',
+                    'flex shrink-0 items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm font-medium whitespace-nowrap transition-colors cursor-pointer',
                     'lg:w-full',
                     isActive
-                      ? 'bg-primary-soft text-primary'
+                      ? 'bg-primary-soft text-primary font-bold'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                   )}
                 >
                   <Icon className="size-4 shrink-0" />
-                  <span className="flex-1">{meta.label}</span>
+                  <span className="flex-1">{displaySectionLabel}</span>
                   {hints?.[s] != null ? (
                     <span
                       className={cn(

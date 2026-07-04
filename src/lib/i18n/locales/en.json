@@ -23,9 +23,26 @@
     "profile": "Profile"
   },
   "settings": {
+    "groups": {
+      "account": "Account",
+      "workspace": "Workspace"
+    },
+    "sections": {
+      "overview": "Overview",
+      "profile": "Your profile",
+      "security": "Login & security",
+      "appearance": "Appearance",
+      "whatsapp": "WhatsApp",
+      "templates": "Templates",
+      "fields": "Fields & tags",
+      "deals": "Deals & currency",
+      "members": "Team members",
+      "api": "API keys"
+    },
     "appearance": {
       "title": "Appearance",
       "description": "Choose the app's visual mode. Changes are saved locally to this device and apply instantly.",
+      "description_general": "Everything in one place — your account and your workspace. Pick a section to manage it.",
       "mode": "Screen Mode",
       "modes": {
         "light": "Light",

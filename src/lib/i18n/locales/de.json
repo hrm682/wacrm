@@ -23,9 +23,26 @@
     "profile": "Profil"
   },
   "settings": {
+    "groups": {
+      "account": "Konto",
+      "workspace": "Arbeitsbereich"
+    },
+    "sections": {
+      "overview": "Übersicht",
+      "profile": "Ihr Profil",
+      "security": "Anmeldung & Sicherheit",
+      "appearance": "Erscheinungsbild",
+      "whatsapp": "WhatsApp",
+      "templates": "Vorlagen",
+      "fields": "Felder & Tags",
+      "deals": "Deals & Währung",
+      "members": "Teammitglieder",
+      "api": "API-Schlüssel"
+    },
     "appearance": {
       "title": "Erscheinungsbild",
       "description": "Wählen Sie den visuellen Modus der App. Änderungen werden lokal auf diesem Gerät gespeichert und sofort angewendet.",
+      "description_general": "Alles an einem Ort — Ihr Konto und Ihr Arbeitsbereich. Wählen Sie einen Bereich zum Verwalten.",
       "mode": "Bildschirmmodus",
       "modes": {
         "light": "Hell",

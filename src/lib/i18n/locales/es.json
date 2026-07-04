@@ -23,9 +23,26 @@
     "profile": "Perfil"
   },
   "settings": {
+    "groups": {
+      "account": "Cuenta",
+      "workspace": "Espacio de Trabajo"
+    },
+    "sections": {
+      "overview": "Resumen",
+      "profile": "Tu perfil",
+      "security": "Inicio y seguridad",
+      "appearance": "Apariencia",
+      "whatsapp": "WhatsApp",
+      "templates": "Plantillas",
+      "fields": "Campos y etiquetas",
+      "deals": "Tratos y moneda",
+      "members": "Miembros del equipo",
+      "api": "Claves API"
+    },
     "appearance": {
       "title": "Apariencia",
       "description": "Elige el modo visual del sistema. Los cambios se guardan localmente en este dispositivo y se aplican al instante.",
+      "description_general": "Todo en un solo lugar — tu cuenta y tu espacio de trabajo. Elige una sección para administrarla.",
       "mode": "Modo de Pantalla",
       "modes": {
         "light": "Claro",
