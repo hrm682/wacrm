@@ -52,5 +52,72 @@
       "language": "Langue",
       "language_description": "Choisissez votre langue préférée. Par défaut, elle sera détectée en fonction de votre position IP."
     }
+  },
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "subtitle": "Analyses en temps réel des conversations, contacts, opportunités, diffusions et automatisations.",
+    "metrics": {
+      "active_conversations": "Conversations Actives",
+      "new_contacts_today": "Nouveaux Contacts Aujourd'hui",
+      "open_deals_value": "Valeur des Opportunités Ouvertes",
+      "messages_sent_today": "Messages Envoyés Aujourd'hui",
+      "delta": {
+        "new_today": "nouveau aujourd'hui vs hier",
+        "vs_yesterday": "vs hier",
+        "no_change": "Pas de changement",
+        "deals_count": "1 opportunité ouverte",
+        "deals_count_plural": "{count} opportunités ouvertes"
+      }
+    },
+    "actions": {
+      "new_contact": "Nouveau Contact",
+      "new_deal": "Nouvelle Opportunité",
+      "new_broadcast": "Nouvelle Diffusion",
+      "new_automation": "Nouvelle Automatisation"
+    },
+    "chart": {
+      "conversations_title": "Conversations au Fil du Temps",
+      "conversations_subtitle": "Volume quotidien de messages par direction",
+      "days": "{count} jours",
+      "no_activity": "Aucune activité de message dans cette période",
+      "no_activity_hint": "Envoyez ou recevez des messages pour commencer à remplir ce graphique.",
+      "incoming": "Entrant",
+      "outgoing": "Sortant",
+      "incoming_tooltip": "entrants",
+      "outgoing_tooltip": "sortants"
+    },
+    "pipeline": {
+      "title": "Valeur du Pipeline",
+      "subtitle": "Opportunités ouvertes par étape",
+      "no_deals": "Aucune opportunité ouverte pour le moment",
+      "no_deals_hint": "Créez des opportunités dans les pipelines pour voir la répartition par étape ici.",
+      "deal": "opportunité",
+      "deal_plural": "opportunités",
+      "total": "Total"
+    },
+    "response_time": {
+      "title": "Temps Moyen de Première Réponse",
+      "subtitle": "Minutes pour répondre au premier message non répondu d'un client, par jour de la semaine",
+      "target": "cible {minutes}m",
+      "this_week": "Cette semaine: {value}",
+      "last_week": "Semaine dernière: {value}",
+      "no_replies": "Aucune réponse enregistrée pour le moment",
+      "no_replies_hint": "Ce graphique se remplira au fur et à mesure que vous répondrez aux messages des clients.",
+      "avg_minutes": "Minutes moyennes"
+    },
+    "activity": {
+      "title": "Activité Récente",
+      "view_all": "Voir tout →",
+      "no_activity": "Aucune activité pour le moment",
+      "no_activity_hint": "L'activité des messages, opportunités, diffusions et automatisations apparaîtra ici.",
+      "showing": "Affichage de {visible} sur {total}",
+      "show": "Afficher",
+      "time": {
+        "seconds": "il y a {count}s",
+        "minutes": "il y a {count}m",
+        "hours": "il y a {count}h",
+        "days": "il y a {count}d"
+      }
+    }
   }
 }

@@ -52,5 +52,72 @@
       "language": "Sprache",
       "language_description": "Wählen Sie Ihre bevorzugte Sprache. Standardmäßig wird sie basierend auf Ihrem IP-Standort erkannt."
     }
+  },
+  "dashboard": {
+    "title": "Übersicht",
+    "subtitle": "Echtzeit-Analysen über Unterhaltungen, Kontakte, Deals, Broadcasts und Automatisierungen.",
+    "metrics": {
+      "active_conversations": "Aktive Unterhaltungen",
+      "new_contacts_today": "Neue Kontakte Heute",
+      "open_deals_value": "Wert Offener Deals",
+      "messages_sent_today": "Gesendete Nachrichten Heute",
+      "delta": {
+        "new_today": "neu heute vs gestern",
+        "vs_yesterday": "vs gestern",
+        "no_change": "Keine Änderung",
+        "deals_count": "1 offener Deal",
+        "deals_count_plural": "{count} offene Deals"
+      }
+    },
+    "actions": {
+      "new_contact": "Neuer Kontakt",
+      "new_deal": "Neuer Deal",
+      "new_broadcast": "Neuer Broadcast",
+      "new_automation": "Neue Automatisierung"
+    },
+    "chart": {
+      "conversations_title": "Unterhaltungen im Zeitverlauf",
+      "conversations_subtitle": "Tägliches Nachrichtenvolumen nach Richtung",
+      "days": "{count} Tage",
+      "no_activity": "Keine Nachrichtenaktivität in diesem Zeitraum",
+      "no_activity_hint": "Senden oder empfangen Sie Nachrichten, um dieses Diagramm zu füllen.",
+      "incoming": "Eingehend",
+      "outgoing": "Ausgehend",
+      "incoming_tooltip": "eingehend",
+      "outgoing_tooltip": "ausgehend"
+    },
+    "pipeline": {
+      "title": "Pipeline-Wert",
+      "subtitle": "Offene Deals nach Stufe",
+      "no_deals": "Noch keine offenen Deals",
+      "no_deals_hint": "Erstellen Sie Deals in Pipelines, um hier die Aufteilung nach Stufen zu sehen.",
+      "deal": "Deal",
+      "deal_plural": "Deals",
+      "total": "Gesamt"
+    },
+    "response_time": {
+      "title": "Mittlere Erstantwortzeit",
+      "subtitle": "Minuten bis zur Antwort auf die erste unbeantwortete Nachricht eines Kunden, nach Wochentag",
+      "target": "Ziel {minutes}m",
+      "this_week": "Diese Woche: {value}",
+      "last_week": "Letzte Woche: {value}",
+      "no_replies": "Noch keine Antworten aufgezeichnet",
+      "no_replies_hint": "Dieses Diagramm füllt sich, wenn Sie auf Kundennachrichten antworten.",
+      "avg_minutes": "Durchschnittliche Minuten"
+    },
+    "activity": {
+      "title": "Letzte Aktivitäten",
+      "view_all": "Alle anzeigen →",
+      "no_activity": "Noch keine Aktivität",
+      "no_activity_hint": "Aktivitäten aus Nachrichten, Deals, Broadcasts und Automatisierungen werden hier angezeigt.",
+      "showing": "Zeige {visible} von {total}",
+      "show": "Zeigen",
+      "time": {
+        "seconds": "vor {count}s",
+        "minutes": "vor {count}m",
+        "hours": "vor {count}h",
+        "days": "vor {count}d"
+      }
+    }
   }
 }

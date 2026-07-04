@@ -52,5 +52,72 @@
       "language": "Language",
       "language_description": "Choose your preferred language. By default, it will be detected based on your IP location."
     }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Live analytics across conversations, contacts, deals, broadcasts, and automations.",
+    "metrics": {
+      "active_conversations": "Active Conversations",
+      "new_contacts_today": "New Contacts Today",
+      "open_deals_value": "Open Deals Value",
+      "messages_sent_today": "Messages Sent Today",
+      "delta": {
+        "new_today": "new today vs yesterday",
+        "vs_yesterday": "vs yesterday",
+        "no_change": "No change",
+        "deals_count": "1 open deal",
+        "deals_count_plural": "{count} open deals"
+      }
+    },
+    "actions": {
+      "new_contact": "New Contact",
+      "new_deal": "New Deal",
+      "new_broadcast": "New Broadcast",
+      "new_automation": "New Automation"
+    },
+    "chart": {
+      "conversations_title": "Conversations Over Time",
+      "conversations_subtitle": "Daily message volume by direction",
+      "days": "{count} days",
+      "no_activity": "No message activity in this range",
+      "no_activity_hint": "Send or receive messages to start populating this chart.",
+      "incoming": "Incoming",
+      "outgoing": "Outgoing",
+      "incoming_tooltip": "incoming",
+      "outgoing_tooltip": "outgoing"
+    },
+    "pipeline": {
+      "title": "Pipeline Value",
+      "subtitle": "Open deals by stage",
+      "no_deals": "No open deals yet",
+      "no_deals_hint": "Create deals in Pipelines to see stage breakdowns here.",
+      "deal": "deal",
+      "deal_plural": "deals",
+      "total": "Total"
+    },
+    "response_time": {
+      "title": "Average First Response Time",
+      "subtitle": "Minutes to reply to a customer's first unreplied message, by weekday",
+      "target": "target {minutes}m",
+      "this_week": "This week: {value}",
+      "last_week": "Last week: {value}",
+      "no_replies": "No replies recorded yet",
+      "no_replies_hint": "This chart fills in as you reply to customer messages.",
+      "avg_minutes": "Avg minutes"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "view_all": "View all →",
+      "no_activity": "No activity yet",
+      "no_activity_hint": "Activity from messages, deals, broadcasts, and automations will appear here.",
+      "showing": "Showing {visible} of {total}",
+      "show": "Show",
+      "time": {
+        "seconds": "{count}s ago",
+        "minutes": "{count}m ago",
+        "hours": "{count}h ago",
+        "days": "{count}d ago"
+      }
+    }
   }
 }

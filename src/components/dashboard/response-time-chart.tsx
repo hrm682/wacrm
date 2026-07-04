@@ -6,6 +6,7 @@ import type { ResponseTimeSummary } from '@/lib/dashboard/types'
 import { BarChart } from '@/components/tremor/bar-chart'
 import { EmptyState } from './empty-state'
 import { Skeleton } from './skeleton'
+import { useLanguage } from '@/lib/i18n'
 
 interface ResponseTimeChartProps {
   data: ResponseTimeSummary | null
@@ -30,6 +31,8 @@ export function ResponseTimeChart({
   loading,
   thresholdMinutes = 5,
 }: ResponseTimeChartProps) {
+  const { t } = useLanguage()
+  const categoryLabel = t("dashboard.response_time.avg_minutes") || 'Avg minutes'
   const hasData = data?.buckets.some((b) => b.avgMinutes != null) ?? false
 
   // Map buckets → Tremor rows. Null `avgMinutes` (no samples)
@@ -39,7 +42,7 @@ export function ResponseTimeChart({
   const chartData =
     data?.buckets.map((b, i) => ({
       day: DOW_SHORT_MON_FIRST[i],
-      [CATEGORY]: b.avgMinutes ?? 0,
+      [categoryLabel]: b.avgMinutes ?? 0,
       samples: b.samples,
     })) ?? []
 
@@ -48,30 +51,25 @@ export function ResponseTimeChart({
       <header className="flex items-center justify-between gap-3 border-b border-border px-5 py-4">
         <div>
           <h2 className="text-sm font-semibold text-foreground">
-            Average First Response Time
+            {t("dashboard.response_time.title")}
           </h2>
           <p className="mt-0.5 text-xs text-muted-foreground">
-            Minutes to reply to a customer&apos;s first unreplied message, by
-            weekday
+            {t("dashboard.response_time.subtitle")}
           </p>
         </div>
         <div className="flex items-center gap-3 text-right text-xs">
           {thresholdMinutes > 0 && (
             <span className="rounded-full border border-rose-500/40 bg-rose-500/10 px-2 py-0.5 font-medium text-rose-300 tabular-nums">
-              target {thresholdMinutes}m
+              {t("dashboard.response_time.target").replace("{minutes}", thresholdMinutes.toString())}
             </span>
           )}
           {data && (data.thisWeekAvg != null || data.lastWeekAvg != null) && (
-            <div>
+            <div className="text-right">
               <div className="text-muted-foreground">
-                This week:{' '}
-                <span className="font-medium text-foreground tabular-nums">
-                  {fmt(data.thisWeekAvg)}
-                </span>
+                {t("dashboard.response_time.this_week").replace("{value}", fmt(data.thisWeekAvg))}
               </div>
               <div className="text-muted-foreground">
-                Last week:{' '}
-                <span className="tabular-nums">{fmt(data.lastWeekAvg)}</span>
+                {t("dashboard.response_time.last_week").replace("{value}", fmt(data.lastWeekAvg))}
               </div>
             </div>
           )}
@@ -84,14 +82,14 @@ export function ResponseTimeChart({
         ) : !hasData ? (
           <EmptyState
             icon={Clock}
-            title="No replies recorded yet"
-            hint="This chart fills in as you reply to customer messages."
+            title={t("dashboard.response_time.no_replies")}
+            hint={t("dashboard.response_time.no_replies_hint")}
           />
         ) : (
           <BarChart
             data={chartData}
             index="day"
-            categories={[CATEGORY]}
+            categories={[categoryLabel]}
             // 'violet' maps to Tailwind's `fill-violet-500` — matches
             // the brand accent the hand-rolled bars used (#7c3aed).
             colors={['violet']}

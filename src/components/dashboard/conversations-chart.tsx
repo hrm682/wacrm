@@ -6,6 +6,7 @@ import type { ConversationsSeriesPoint } from '@/lib/dashboard/types'
 import { EmptyState } from './empty-state'
 import { Skeleton } from './skeleton'
 import { cn } from '@/lib/utils'
+import { useLanguage } from '@/lib/i18n'
 
 type RangeDays = 7 | 30 | 90
 
@@ -29,6 +30,7 @@ const PADDING = { top: 16, right: 16, bottom: 28, left: 40 }
 
 export function ConversationsChart({ series, loading, range, onRangeChange }: ConversationsChartProps) {
   const data = series[range]
+  const { t } = useLanguage()
 
   // Memoise the max so per-day hover math doesn't recompute it.
   const { maxY, niceTicks } = useMemo(() => {
@@ -49,8 +51,8 @@ export function ConversationsChart({ series, loading, range, onRangeChange }: Co
     <section className="flex h-full flex-col rounded-xl border border-border bg-card">
       <header className="flex items-center justify-between border-b border-border px-5 py-4">
         <div>
-          <h2 className="text-sm font-semibold text-foreground">Conversations Over Time</h2>
-          <p className="mt-0.5 text-xs text-muted-foreground">Daily message volume by direction</p>
+          <h2 className="text-sm font-semibold text-foreground">{t("dashboard.chart.conversations_title")}</h2>
+          <p className="mt-0.5 text-xs text-muted-foreground">{t("dashboard.chart.conversations_subtitle")}</p>
         </div>
         <div className="flex items-center gap-1 rounded-lg bg-muted/60 p-1">
           {[7, 30, 90].map((r) => (
@@ -59,13 +61,13 @@ export function ConversationsChart({ series, loading, range, onRangeChange }: Co
               type="button"
               onClick={() => onRangeChange(r as RangeDays)}
               className={cn(
-                'rounded-md px-2.5 py-1 text-xs font-medium transition-colors',
+                'rounded-md px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer',
                 range === r
-                  ? 'bg-secondary text-secondary-foreground'
+                  ? 'bg-secondary text-secondary-foreground font-semibold'
                   : 'text-muted-foreground hover:text-foreground',
               )}
             >
-              {r} days
+              {t("dashboard.chart.days").replace("{count}", r.toString())}
             </button>
           ))}
         </div>
@@ -77,8 +79,8 @@ export function ConversationsChart({ series, loading, range, onRangeChange }: Co
         ) : data.every((p) => p.incoming === 0 && p.outgoing === 0) ? (
           <EmptyState
             icon={MessageSquare}
-            title="No message activity in this range"
-            hint="Send or receive messages to start populating this chart."
+            title={t("dashboard.chart.no_activity")}
+            hint={t("dashboard.chart.no_activity_hint")}
           />
         ) : (
           <LineSvg data={data} maxY={maxY} ticks={niceTicks} />
@@ -86,8 +88,8 @@ export function ConversationsChart({ series, loading, range, onRangeChange }: Co
       </div>
 
       <footer className="flex items-center gap-4 border-t border-border px-5 py-3 text-xs text-muted-foreground">
-        <LegendDot color="#3b82f6" label="Incoming" />
-        <LegendDot color="#7c3aed" label="Outgoing" />
+        <LegendDot color="#3b82f6" label={t("dashboard.chart.incoming")} />
+        <LegendDot color="#7c3aed" label={t("dashboard.chart.outgoing")} />
       </footer>
     </section>
   )
@@ -106,6 +108,7 @@ function LineSvg({
   maxY: number
   ticks: number[]
 }) {
+  const { t } = useLanguage()
   // Hover state: both the snapped index AND the tooltip's pixel
   // offset inside the wrapper div. They're stored together so the
   // tooltip positions against the chart's actual rendered pixels,
@@ -287,11 +290,11 @@ function LineSvg({
           <div className="mt-1 flex flex-col gap-0.5">
             <span className="flex items-center gap-1.5 text-blue-300">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
-              {hovered.incoming} incoming
+              {hovered.incoming} {t("dashboard.chart.incoming_tooltip") || 'incoming'}
             </span>
             <span className="flex items-center gap-1.5 text-primary">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-              {hovered.outgoing} outgoing
+              {hovered.outgoing} {t("dashboard.chart.outgoing_tooltip") || 'outgoing'}
             </span>
           </div>
         </div>

@@ -52,5 +52,72 @@
       "language": "Idioma",
       "language_description": "Escolha o seu idioma preferido. Por padrão, ele será detectado com base na sua localização IP."
     }
+  },
+  "dashboard": {
+    "title": "Painel de Controle",
+    "subtitle": "Análise em tempo real de conversas, contatos, negócios, transmissões e automações.",
+    "metrics": {
+      "active_conversations": "Conversas Ativas",
+      "new_contacts_today": "Novos Contatos Hoje",
+      "open_deals_value": "Valor de Negócios Abertos",
+      "messages_sent_today": "Mensagens Enviadas Hoje",
+      "delta": {
+        "new_today": "novos hoje vs ontem",
+        "vs_yesterday": "vs ontem",
+        "no_change": "Sem alterações",
+        "deals_count": "1 negócio aberto",
+        "deals_count_plural": "{count} negócios abertos"
+      }
+    },
+    "actions": {
+      "new_contact": "Novo Contato",
+      "new_deal": "Novo Negócio",
+      "new_broadcast": "Nova Transmissão",
+      "new_automation": "Nova Automação"
+    },
+    "chart": {
+      "conversations_title": "Conversas ao Longo do Tempo",
+      "conversations_subtitle": "Volume diário de mensagens por direção",
+      "days": "{count} dias",
+      "no_activity": "Nenhuma atividade de mensagem neste período",
+      "no_activity_hint": "Envie ou receba mensagens para começar a preencher este gráfico.",
+      "incoming": "Entrada",
+      "outgoing": "Saída",
+      "incoming_tooltip": "entradas",
+      "outgoing_tooltip": "saídas"
+    },
+    "pipeline": {
+      "title": "Valor do Funil",
+      "subtitle": "Negócios abertos por etapa",
+      "no_deals": "Nenhum negócio aberto ainda",
+      "no_deals_hint": "Crie negócios no Funil para ver o detalhamento por etapa aqui.",
+      "deal": "negócio",
+      "deal_plural": "negócios",
+      "total": "Total"
+    },
+    "response_time": {
+      "title": "Tempo Médio de Primeira Resposta",
+      "subtitle": "Minutos para responder à primeira mensagem não respondida de um cliente, por dia da semana",
+      "target": "meta {minutes}m",
+      "this_week": "Esta semana: {value}",
+      "last_week": "Semana anterior: {value}",
+      "no_replies": "Nenhuma resposta registrada ainda",
+      "no_replies_hint": "Este gráfico será preenchido à medida que você responder às mensagens dos clientes.",
+      "avg_minutes": "Minutos médios"
+    },
+    "activity": {
+      "title": "Atividade Recente",
+      "view_all": "Ver tudo →",
+      "no_activity": "Nenhuma atividade ainda",
+      "no_activity_hint": "A atividade de mensagens, negócios, transmissões e automações aparecerá aqui.",
+      "showing": "Mostrando {visible} de {total}",
+      "show": "Mostrar",
+      "time": {
+        "seconds": "há {count}s",
+        "minutes": "há {count}m",
+        "hours": "há {count}h",
+        "days": "há {count}d"
+      }
+    }
   }
 }

@@ -52,5 +52,72 @@
       "language": "Idioma",
       "language_description": "Elige tu idioma preferido. Por defecto se detectará según tu ubicación IP."
     }
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "subtitle": "Análisis en tiempo real de conversaciones, contactos, tratos, difusiones y automatizaciones.",
+    "metrics": {
+      "active_conversations": "Conversaciones Activas",
+      "new_contacts_today": "Contactos Nuevos Hoy",
+      "open_deals_value": "Valor de Tratos Abiertos",
+      "messages_sent_today": "Mensajes Enviados Hoy",
+      "delta": {
+        "new_today": "nuevos hoy vs ayer",
+        "vs_yesterday": "vs ayer",
+        "no_change": "Sin cambios",
+        "deals_count": "1 trato abierto",
+        "deals_count_plural": "{count} tratos abiertos"
+      }
+    },
+    "actions": {
+      "new_contact": "Nuevo Contacto",
+      "new_deal": "Nuevo Trato",
+      "new_broadcast": "Nueva Difusión",
+      "new_automation": "Nueva Automatización"
+    },
+    "chart": {
+      "conversations_title": "Conversaciones en el Tiempo",
+      "conversations_subtitle": "Volumen diario de mensajes por dirección",
+      "days": "{count} días",
+      "no_activity": "Sin actividad de mensajes en este rango",
+      "no_activity_hint": "Envía o recibe mensajes para comenzar a poblar este gráfico.",
+      "incoming": "Entrantes",
+      "outgoing": "Salientes",
+      "incoming_tooltip": "entrantes",
+      "outgoing_tooltip": "salientes"
+    },
+    "pipeline": {
+      "title": "Valor del Embudo",
+      "subtitle": "Tratos abiertos por etapa",
+      "no_deals": "Sin tratos abiertos aún",
+      "no_deals_hint": "Crea tratos en Embudos para ver el desglose por etapa aquí.",
+      "deal": "trato",
+      "deal_plural": "tratos",
+      "total": "Total"
+    },
+    "response_time": {
+      "title": "Tiempo Promedio de Primera Respuesta",
+      "subtitle": "Minutos para responder al primer mensaje no respondido de un cliente, por día de la semana",
+      "target": "meta {minutes}m",
+      "this_week": "Esta semana: {value}",
+      "last_week": "Semana anterior: {value}",
+      "no_replies": "Sin respuestas registradas aún",
+      "no_replies_hint": "Este gráfico se poblará a medida que respondas mensajes de clientes.",
+      "avg_minutes": "Minutos promedio"
+    },
+    "activity": {
+      "title": "Actividad Reciente",
+      "view_all": "Ver todo →",
+      "no_activity": "Sin actividad aún",
+      "no_activity_hint": "La actividad de mensajes, tratos, difusiones y automatizaciones aparecerá aquí.",
+      "showing": "Mostrando {visible} de {total}",
+      "show": "Mostrar",
+      "time": {
+        "seconds": "hace {count}s",
+        "minutes": "hace {count}m",
+        "hours": "hace {count}h",
+        "days": "hace {count}d"
+      }
+    }
   }
 }

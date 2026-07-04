@@ -52,5 +52,72 @@
       "language": "Lingua",
       "language_description": "Scegli la tua lingua preferita. Per impostazione predefinita, verrà rilevata in base alla tua posizione IP."
     }
+  },
+  "dashboard": {
+    "title": "Pannello di Controllo",
+    "subtitle": "Analisi in tempo reale di conversazioni, contatti, trattative, trasmissioni e automazioni.",
+    "metrics": {
+      "active_conversations": "Conversazioni Attive",
+      "new_contacts_today": "Nuovi Contatti Oggi",
+      "open_deals_value": "Valore Trattative Aperte",
+      "messages_sent_today": "Messaggi Inviati Oggi",
+      "delta": {
+        "new_today": "nuovo oggi vs ieri",
+        "vs_yesterday": "vs ieri",
+        "no_change": "Nessuna variazione",
+        "deals_count": "1 trattativa aperta",
+        "deals_count_plural": "{count} trattative aperte"
+      }
+    },
+    "actions": {
+      "new_contact": "Nuovo Contatto",
+      "new_deal": "Nuova Trattativa",
+      "new_broadcast": "Nuova Trasmissione",
+      "new_automation": "Nuova Automazione"
+    },
+    "chart": {
+      "conversations_title": "Conversazioni nel Tempo",
+      "conversations_subtitle": "Volume giornaliero di messaggi per direzione",
+      "days": "{count} giorni",
+      "no_activity": "Nessuna attività di messaggistica in questo intervallo",
+      "no_activity_hint": "Invia o ricevi messaggi per iniziare a popolare questo grafico.",
+      "incoming": "In entrata",
+      "outgoing": "In uscita",
+      "incoming_tooltip": "in entrata",
+      "outgoing_tooltip": "in uscita"
+    },
+    "pipeline": {
+      "title": "Valore della Pipeline",
+      "subtitle": "Trattative aperte per fase",
+      "no_deals": "Nessuna trattativa aperta ancora",
+      "no_deals_hint": "Crea trattative nelle Pipeline per vedere il dettaglio delle fasi qui.",
+      "deal": "trattativa",
+      "deal_plural": "trattative",
+      "total": "Totale"
+    },
+    "response_time": {
+      "title": "Tempo Medio di Prima Risposta",
+      "subtitle": "Minuti per rispondere al primo messaggio non risposto di un cliente, per giorno della settimana",
+      "target": "obiettivo {minutes}m",
+      "this_week": "Questa settimana: {value}",
+      "last_week": "Settimana scorsa: {value}",
+      "no_replies": "Nessuna risposta registrata ancora",
+      "no_replies_hint": "Questo grafico si popolerà man mano che rispondi ai messaggi dei clienti.",
+      "avg_minutes": "Minuti medi"
+    },
+    "activity": {
+      "title": "Attività Recente",
+      "view_all": "Visualizza tutto →",
+      "no_activity": "Nessuna attività ancora",
+      "no_activity_hint": "L'attività relativa a messaggi, trattative, trasmissioni e automazioni apparirà qui.",
+      "showing": "Mostrando {visible} di {total}",
+      "show": "Mostra",
+      "time": {
+        "seconds": "{count}s fa",
+        "minutes": "{count}m fa",
+        "hours": "{count}h fa",
+        "days": "{count}d fa"
+      }
+    }
   }
 }
