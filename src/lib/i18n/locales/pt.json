@@ -1,0 +1,39 @@
+{
+  "sidebar": {
+    "dashboard": "Painel de Controle",
+    "inbox": "Caixa de Entrada",
+    "contacts": "Contatos",
+    "pipelines": "Funis de Vendas",
+    "broadcasts": "Transmissões",
+    "automations": "Automações",
+    "agents": "Agentes",
+    "presence": "Presença",
+    "settings": "Configurações",
+    "logout": "Sair",
+    "roles": {
+      "owner": "Proprietário",
+      "admin": "Administrador",
+      "agent": "Agente",
+      "viewer": "Visualizador"
+    }
+  },
+  "header": {
+    "search": "Buscar...",
+    "notifications": "Notificações",
+    "profile": "Perfil"
+  },
+  "settings": {
+    "appearance": {
+      "title": "Aparência",
+      "description": "Escolha o modo visual do aplicativo. As alterações são salvas localmente neste dispositivo e aplicadas instantaneamente.",
+      "mode": "Modo de Tela",
+      "modes": {
+        "light": "Claro",
+        "dark": "Escuro"
+      },
+      "active": "Ativo",
+      "language": "Idioma",
+      "language_description": "Escolha o seu idioma preferido. Por padrão, ele será detectado com base na sua localização IP."
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { useTotalUnread } from "@/hooks/use-total-unread";
 import { useUnreadNotifications } from "@/hooks/use-unread-notifications";
+import { useLanguage } from "@/lib/i18n";
 import {
   Bell,
   Bot,
@@ -105,6 +106,20 @@ const bottomNavItems = [
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
+function getNavItemTranslationKey(href: string): string {
+  if (href === "/dashboard") return "sidebar.dashboard";
+  if (href === "/inbox") return "sidebar.inbox";
+  if (href === "/notifications") return "header.notifications";
+  if (href === "/contacts") return "sidebar.contacts";
+  if (href === "/pipelines") return "sidebar.pipelines";
+  if (href === "/broadcasts") return "sidebar.broadcasts";
+  if (href === "/automations") return "sidebar.automations";
+  if (href === "/flows") return "sidebar.automations";
+  if (href === "/agents") return "sidebar.agents";
+  if (href === "/settings") return "sidebar.settings";
+  return "";
+}
+
 interface SidebarProps {
   /** Controlled on mobile by the Header's hamburger button. Ignored on lg+. */
   open?: boolean;
@@ -114,6 +129,7 @@ interface SidebarProps {
 export function Sidebar({ open = false, onClose }: SidebarProps) {
   const pathname = usePathname();
   const { profile, profileLoading, account, accountRole, signOut } = useAuth();
+  const { t } = useLanguage();
   const totalUnread = useTotalUnread();
   const unreadNotifications = useUnreadNotifications();
   // Only surface the account-name strip when it actually carries
@@ -181,16 +197,20 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
         )}
         aria-label="Primary"
       >
-        {/* Logo row. On mobile we put a close button here; on desktop the
-            close button is hidden since the sidebar is always-visible. */}
         <div className="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-border px-4">
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <MessageSquare className="h-4 w-4" />
+          <Link href="/dashboard" className="flex items-center gap-2 pl-1">
+            <div className="relative h-8 w-36">
+              <img
+                src="/logos/logo-dark.png"
+                alt="PowerChat Logo"
+                className="hidden dark:block object-contain h-full w-full"
+              />
+              <img
+                src="/logos/logo-light.png"
+                alt="PowerChat Logo"
+                className="block dark:hidden object-contain h-full w-full"
+              />
             </div>
-            <span className="text-sm font-semibold text-foreground">
-              CRM Template for WhatsApp
-            </span>
           </Link>
           <button
             type="button"
@@ -220,6 +240,9 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
               const showNotificationBadge =
                 item.href === "/notifications" && unreadNotifications > 0;
 
+              const translationKey = getNavItemTranslationKey(item.href);
+              const label = translationKey ? t(translationKey) : item.label;
+
               return (
                 <li key={item.href}>
                   <Link
@@ -233,7 +256,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                     )}
                   >
                     <item.icon className="h-4 w-4" />
-                    <span className="flex-1">{item.label}</span>
+                    <span className="flex-1">{label}</span>
                     {item.beta && (
                       <span
                         aria-label="Beta feature"
@@ -270,6 +293,8 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
           <ul className="flex flex-col gap-1">
             {bottomNavItems.map((item) => {
               const isActive = pathname.startsWith(item.href);
+              const translationKey = getNavItemTranslationKey(item.href);
+              const label = translationKey ? t(translationKey) : item.label;
               return (
                 <li key={item.href}>
                   <Link
@@ -282,7 +307,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                     )}
                   >
                     <item.icon className="h-4 w-4" />
-                    {item.label}
+                    {label}
                   </Link>
                 </li>
               );
@@ -315,12 +340,13 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                 (() => {
                   const meta = ROLE_CHIP[accountRole];
                   const Icon = meta.icon;
+                  const roleLabel = t(`sidebar.roles.${accountRole}`);
                   return (
                     <span
                       className={`ml-auto inline-flex shrink-0 items-center gap-1 rounded-full border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider ${meta.className}`}
                     >
                       <Icon className="size-3" />
-                      {meta.label}
+                      {roleLabel}
                     </span>
                   );
                 })()
@@ -367,7 +393,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                 }
               >
                 <User className="size-4" />
-                Profile
+                {t("header.profile")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 render={
@@ -379,7 +405,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                 }
               >
                 <Settings className="size-4" />
-                Settings
+                {t("sidebar.settings")}
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-border" />
               <DropdownMenuItem
@@ -387,7 +413,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                 className="text-popover-foreground focus:bg-accent focus:text-accent-foreground"
               >
                 <LogOut className="size-4" />
-                Sign out
+                {t("sidebar.logout")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

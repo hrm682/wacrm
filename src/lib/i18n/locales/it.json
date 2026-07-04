@@ -1,0 +1,39 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "inbox": "Bandeja di Ingresso",
+    "contacts": "Contatti",
+    "pipelines": "Pipeline di Vendita",
+    "broadcasts": "Broadcast",
+    "automations": "Automazioni",
+    "agents": "Agenti",
+    "presence": "Presenza",
+    "settings": "Impostazioni",
+    "logout": "Disconnettersi",
+    "roles": {
+      "owner": "Proprietario",
+      "admin": "Admin",
+      "agent": "Agente",
+      "viewer": "Visualizzatore"
+    }
+  },
+  "header": {
+    "search": "Cerca...",
+    "notifications": "Notifiche",
+    "profile": "Profilo"
+  },
+  "settings": {
+    "appearance": {
+      "title": "Aspetto",
+      "description": "Scegli la modalità visiva dell'applicazione. Le modifiche vengono salvate localmente su questo dispositivo e applicate istantaneamente.",
+      "mode": "Modalità Schermo",
+      "modes": {
+        "light": "Chiaro",
+        "dark": "Scuro"
+      },
+      "active": "Attivo",
+      "language": "Lingua",
+      "language_description": "Scegli la tua lingua preferita. Per impostazione predefinita, verrà rilevata in base alla tua posizione IP."
+    }
+  }
+}

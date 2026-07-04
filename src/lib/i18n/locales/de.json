@@ -1,0 +1,39 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "inbox": "Posteingang",
+    "contacts": "Kontakte",
+    "pipelines": "Verkaufspipelines",
+    "broadcasts": "Rundsendungen",
+    "automations": "Automatisierungen",
+    "agents": "Agenten",
+    "presence": "Präsenz",
+    "settings": "Einstellungen",
+    "logout": "Abmelden",
+    "roles": {
+      "owner": "Inhaber",
+      "admin": "Admin",
+      "agent": "Agent",
+      "viewer": "Beobachter"
+    }
+  },
+  "header": {
+    "search": "Suchen...",
+    "notifications": "Benachrichtigungen",
+    "profile": "Profil"
+  },
+  "settings": {
+    "appearance": {
+      "title": "Erscheinungsbild",
+      "description": "Wählen Sie den visuellen Modus der App. Änderungen werden lokal auf diesem Gerät gespeichert und sofort angewendet.",
+      "mode": "Bildschirmmodus",
+      "modes": {
+        "light": "Hell",
+        "dark": "Dunkel"
+      },
+      "active": "Aktiv",
+      "language": "Sprache",
+      "language_description": "Wählen Sie Ihre bevorzugte Sprache. Standardmäßig wird sie basierend auf Ihrem IP-Standort erkannt."
+    }
+  }
+}

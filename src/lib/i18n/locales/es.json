@@ -1,0 +1,39 @@
+{
+  "sidebar": {
+    "dashboard": "Panel de Control",
+    "inbox": "Bandeja de Entrada",
+    "contacts": "Contactos",
+    "pipelines": "Embudos de Venta",
+    "broadcasts": "Difusiones",
+    "automations": "Automatizaciones",
+    "agents": "Agentes",
+    "presence": "Presencia",
+    "settings": "Configuración",
+    "logout": "Cerrar Sesión",
+    "roles": {
+      "owner": "Propietario",
+      "admin": "Administrador",
+      "agent": "Agente",
+      "viewer": "Lector"
+    }
+  },
+  "header": {
+    "search": "Buscar...",
+    "notifications": "Notificaciones",
+    "profile": "Perfil"
+  },
+  "settings": {
+    "appearance": {
+      "title": "Apariencia",
+      "description": "Elige el modo visual del sistema. Los cambios se guardan localmente en este dispositivo y se aplican al instante.",
+      "mode": "Modo de Pantalla",
+      "modes": {
+        "light": "Claro",
+        "dark": "Oscuro"
+      },
+      "active": "Activo",
+      "language": "Idioma",
+      "language_description": "Elige tu idioma preferido. Por defecto se detectará según tu ubicación IP."
+    }
+  }
+}

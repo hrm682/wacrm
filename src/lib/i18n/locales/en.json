@@ -1,0 +1,39 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "inbox": "Inbox",
+    "contacts": "Contacts",
+    "pipelines": "Sales Pipelines",
+    "broadcasts": "Broadcasts",
+    "automations": "Automations",
+    "agents": "Agents",
+    "presence": "Presence",
+    "settings": "Settings",
+    "logout": "Log Out",
+    "roles": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "agent": "Agent",
+      "viewer": "Viewer"
+    }
+  },
+  "header": {
+    "search": "Search...",
+    "notifications": "Notifications",
+    "profile": "Profile"
+  },
+  "settings": {
+    "appearance": {
+      "title": "Appearance",
+      "description": "Choose the app's visual mode. Changes are saved locally to this device and apply instantly.",
+      "mode": "Screen Mode",
+      "modes": {
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "active": "Active",
+      "language": "Language",
+      "language_description": "Choose your preferred language. By default, it will be detected based on your IP location."
+    }
+  }
+}

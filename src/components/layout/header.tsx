@@ -17,36 +17,34 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "@/components/layout/mode-toggle";
+import { LanguageSelector } from "@/components/layout/language-selector";
+import { useLanguage } from "@/lib/i18n";
 
-const pageTitles: Record<string, string> = {
-  "/dashboard": "Dashboard",
-  "/inbox": "Inbox",
-  "/notifications": "Notifications",
-  "/contacts": "Contacts",
-  "/pipelines": "Pipelines",
-  "/broadcasts": "Broadcasts",
-  "/automations": "Automations",
-  "/settings": "Settings",
-};
-
-function getPageTitle(pathname: string): string {
-  if (pageTitles[pathname]) return pageTitles[pathname];
-  const match = Object.entries(pageTitles).find(([path]) =>
-    pathname.startsWith(path),
-  );
-  return match ? match[1] : "Dashboard";
+function getPageTitle(pathname: string, t: (key: string) => string): string {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length === 0) return t("sidebar.dashboard");
+  
+  const mainPart = parts[0];
+  if (mainPart === "dashboard") return t("sidebar.dashboard");
+  if (mainPart === "inbox") return t("sidebar.inbox");
+  if (mainPart === "contacts") return t("sidebar.contacts");
+  if (mainPart === "pipelines") return t("sidebar.pipelines");
+  if (mainPart === "broadcasts") return t("sidebar.broadcasts");
+  if (mainPart === "automations") return t("sidebar.automations");
+  if (mainPart === "settings") return t("sidebar.settings");
+  
+  return t("sidebar.dashboard");
 }
 
 interface HeaderProps {
-  /** Wired to the shell's drawer state. Used only on mobile — the
-   *  hamburger button is hidden on lg+. */
   onOpenSidebar?: () => void;
 }
 
 export function Header({ onOpenSidebar }: HeaderProps) {
   const pathname = usePathname();
   const { profile, signOut } = useAuth();
-  const title = getPageTitle(pathname);
+  const { t } = useLanguage();
+  const title = getPageTitle(pathname, t);
 
   const initial =
     profile?.full_name?.charAt(0)?.toUpperCase() ??
@@ -56,7 +54,6 @@ export function Header({ onOpenSidebar }: HeaderProps) {
   return (
     <header className="flex h-14 shrink-0 items-center justify-between gap-3 border-b border-border bg-background px-4 lg:px-6">
       <div className="flex min-w-0 items-center gap-2">
-        {/* Hamburger — mobile only. 44×44 hit target per Apple HIG. */}
         <button
           type="button"
           onClick={onOpenSidebar}
@@ -70,7 +67,8 @@ export function Header({ onOpenSidebar }: HeaderProps) {
         </h1>
       </div>
 
-      <div className="flex items-center gap-1 sm:gap-2">
+      <div className="flex items-center gap-1.5 sm:gap-2">
+        <LanguageSelector />
         <ModeToggle />
 
         <DropdownMenu>
@@ -116,7 +114,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
             }
           >
             <User className="size-4" />
-            Profile
+            {t("header.profile")}
           </DropdownMenuItem>
           <DropdownMenuItem
             render={
@@ -127,7 +125,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
             }
           >
             <SettingsIcon className="size-4" />
-            Settings
+            {t("sidebar.settings")}
           </DropdownMenuItem>
           <DropdownMenuSeparator className="bg-border" />
           <DropdownMenuItem
@@ -135,7 +133,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
             className="text-popover-foreground focus:bg-accent focus:text-accent-foreground"
           >
             <LogOut className="size-4" />
-            Sign out
+            {t("sidebar.logout")}
           </DropdownMenuItem>
         </DropdownMenuContent>
         </DropdownMenu>
