@@ -102,7 +102,7 @@ export function ActivityFeed({ items, loading }: ActivityFeedProps) {
                     <Icon className="h-3.5 w-3.5" />
                   </span>
                   <span className="min-w-0 flex-1 truncate text-sm text-foreground">
-                    {it.text}
+                    {getTranslatedText(it.text, t)}
                   </span>
                   <span className="flex-shrink-0 text-xs text-muted-foreground tabular-nums">
                     {relativeTime(it.at, t)}
@@ -180,4 +180,58 @@ function relativeTime(iso: string, t: (key: string) => string): string {
     return (t("dashboard.activity.time.days") || "{count}d ago").replace("{count}", val.toString())
   }
   return new Date(iso).toLocaleDateString()
+}
+
+function getTranslatedText(text: string, t: (key: string) => string): string {
+  // 1. Message
+  if (text.startsWith("New message from ")) {
+    const who = text.substring("New message from ".length);
+    return (t("dashboard.activity.message_from") || "New message from {who}").replace("{who}", who);
+  }
+  // 2. Contact
+  if (text.startsWith("New contact: ")) {
+    const who = text.substring("New contact: ".length);
+    return (t("dashboard.activity.new_contact") || "New contact: {who}").replace("{who}", who);
+  }
+  // 3. Deal stage
+  // Deal "X" in Y
+  const dealStageMatch = text.match(/^Deal "(.+)" in (.+)$/);
+  if (dealStageMatch) {
+    const [, title, stage] = dealStageMatch;
+    return (t("dashboard.activity.deal_stage") || 'Deal "{title}" in {stage}').replace("{title}", title).replace("{stage}", stage);
+  }
+  // Deal "X" updated
+  const dealUpdatedMatch = text.match(/^Deal "(.+)" updated$/);
+  if (dealUpdatedMatch) {
+    const [, title] = dealUpdatedMatch;
+    return (t("dashboard.activity.deal_updated") || 'Deal "{title}" updated').replace("{title}", title);
+  }
+  // 4. Broadcast
+  // Broadcast "X" sent to Y contacts
+  const broadcastSentMatch = text.match(/^Broadcast "(.+)" sent to (\d+) contacts$/);
+  if (broadcastSentMatch) {
+    const [, name, count] = broadcastSentMatch;
+    return (t("dashboard.activity.broadcast_sent") || 'Broadcast "{name}" sent to {count} contacts').replace("{name}", name).replace("{count}", count);
+  }
+  // Broadcast "X" status (count recipients)
+  const broadcastStatusMatch = text.match(/^Broadcast "(.+)" (.+) \((\d+) recipients\)$/);
+  if (broadcastStatusMatch) {
+    const [, name, status, count] = broadcastStatusMatch;
+    return (t("dashboard.activity.broadcast_status") || 'Broadcast "{name}" {status} ({count} recipients)').replace("{name}", name).replace("{status}", status).replace("{count}", count);
+  }
+  // 5. Automation
+  // Automation "X" triggered for Y
+  const autoTriggeredMatch = text.match(/^Automation "(.+)" triggered for (.+)$/);
+  if (autoTriggeredMatch) {
+    const [, name, who] = autoTriggeredMatch;
+    return (t("dashboard.activity.automation_triggered") || 'Automation "{name}" triggered for {who}').replace("{name}", name).replace("{who}", who);
+  }
+  // Automation "X" failed for Y
+  const autoFailedMatch = text.match(/^Automation "(.+)" failed for (.+)$/);
+  if (autoFailedMatch) {
+    const [, name, who] = autoFailedMatch;
+    return (t("dashboard.activity.automation_failed") || 'Automation "{name}" failed for {who}').replace("{name}", name).replace("{who}", who);
+  }
+
+  return text;
 }

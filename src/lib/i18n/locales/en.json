@@ -117,7 +117,31 @@
         "minutes": "{count}m ago",
         "hours": "{count}h ago",
         "days": "{count}d ago"
-      }
+      },
+      "message_from": "New message from {who}",
+      "new_contact": "New contact: {who}",
+      "deal_stage": "Deal \"{title}\" in {stage}",
+      "deal_updated": "Deal \"{title}\" updated",
+      "broadcast_sent": "Broadcast \"{name}\" sent to {count} contacts",
+      "broadcast_status": "Broadcast \"{name}\" {status} ({count} recipients)",
+      "automation_triggered": "Automation \"{name}\" triggered for {who}",
+      "automation_failed": "Automation \"{name}\" failed for {who}"
     }
+  },
+  "days": {
+    "mon": "Monday",
+    "tue": "Tuesday",
+    "wed": "Wednesday",
+    "thu": "Thursday",
+    "fri": "Friday",
+    "sat": "Saturday",
+    "sun": "Sunday",
+    "mon_short": "Mon",
+    "tue_short": "Tue",
+    "wed_short": "Wed",
+    "thu_short": "Thu",
+    "fri_short": "Fri",
+    "sat_short": "Sat",
+    "sun_short": "Sun"
   }
 }

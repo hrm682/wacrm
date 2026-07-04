@@ -117,7 +117,31 @@
         "minutes": "vor {count}m",
         "hours": "vor {count}h",
         "days": "vor {count}d"
-      }
+      },
+      "message_from": "Neue Nachricht von {who}",
+      "new_contact": "Neuer Kontakt: {who}",
+      "deal_stage": "Deal \"{title}\" in {stage}",
+      "deal_updated": "Deal \"{title}\" aktualisiert",
+      "broadcast_sent": "Broadcast \"{name}\" an {count} Kontakte gesendet",
+      "broadcast_status": "Broadcast \"{name}\" {status} ({count} Empfänger)",
+      "automation_triggered": "Automatisierung \"{name}\" für {who} ausgelöst",
+      "automation_failed": "Automatisierung \"{name}\" für {who} fehlgeschlagen"
     }
+  },
+  "days": {
+    "mon": "Montag",
+    "tue": "Dienstag",
+    "wed": "Mittwoch",
+    "thu": "Donnerstag",
+    "fri": "Freitag",
+    "sat": "Samstag",
+    "sun": "Sonntag",
+    "mon_short": "Mo",
+    "tue_short": "Di",
+    "wed_short": "Mi",
+    "thu_short": "Do",
+    "fri_short": "Fr",
+    "sat_short": "Sa",
+    "sun_short": "So"
   }
 }

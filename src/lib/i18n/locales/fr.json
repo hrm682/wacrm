@@ -117,7 +117,31 @@
         "minutes": "il y a {count}m",
         "hours": "il y a {count}h",
         "days": "il y a {count}d"
-      }
+      },
+      "message_from": "Nouveau message de {who}",
+      "new_contact": "Nouveau contact : {who}",
+      "deal_stage": "Opportunité \"{title}\" dans {stage}",
+      "deal_updated": "Opportunité \"{title}\" mise à jour",
+      "broadcast_sent": "Diffusion \"{name}\" envoyée à {count} contacts",
+      "broadcast_status": "Diffusion \"{name}\" {status} ({count} destinataires)",
+      "automation_triggered": "Automatisation \"{name}\" déclenchée pour {who}",
+      "automation_failed": "Automatisation \"{name}\" échouée pour {who}"
     }
+  },
+  "days": {
+    "mon": "Lundi",
+    "tue": "Mardi",
+    "wed": "Mercredi",
+    "thu": "Jeudi",
+    "fri": "Vendredi",
+    "sat": "Samedi",
+    "sun": "Dimanche",
+    "mon_short": "Lun",
+    "tue_short": "Mar",
+    "wed_short": "Mer",
+    "thu_short": "Jeu",
+    "fri_short": "Ven",
+    "sat_short": "Sam",
+    "sun_short": "Dim"
   }
 }

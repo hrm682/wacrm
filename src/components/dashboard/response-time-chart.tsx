@@ -40,11 +40,15 @@ export function ResponseTimeChart({
   // We attach `samples` on the row so a future customTooltip can
   // surface "no samples" copy without losing the data shape.
   const chartData =
-    data?.buckets.map((b, i) => ({
-      day: DOW_SHORT_MON_FIRST[i],
-      [categoryLabel]: b.avgMinutes ?? 0,
-      samples: b.samples,
-    })) ?? []
+    data?.buckets.map((b, i) => {
+      const dayName = DOW_SHORT_MON_FIRST[i];
+      const translatedDay = t(`days.${dayName.toLowerCase()}_short`) || dayName;
+      return {
+        day: translatedDay,
+        [categoryLabel]: b.avgMinutes ?? 0,
+        samples: b.samples,
+      };
+    }) ?? []
 
   return (
     <section className="rounded-xl border border-border bg-card">
@@ -95,7 +99,7 @@ export function ResponseTimeChart({
             colors={['violet']}
             valueFormatter={(value) => `${value.toFixed(1)}m`}
             showLegend={false}
-            yAxisWidth={48}
+            yAxisWidth={60}
             // Compact height so the chart sits well inside the card
             // without dominating the row alongside the donut + activity feed.
             className="h-[260px]"
